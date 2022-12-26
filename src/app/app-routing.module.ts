@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { DepartmentComponent } from './department/department.component';
-import { EmployeesComponent } from './employees/employees.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { PersonDetailComponent } from './person-detail/person-detail.component';
 import { PersonComponent } from './person/person.component';
+import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { ProjectComponent } from './project/project.component';
 
 const routes: Routes = [
   { path: 'person', component: PersonComponent },
-  { path: 'department', component: DepartmentComponent },
+  { path: 'person-detail', component: PersonDetailComponent },
+  { path: 'project', component: ProjectComponent },
+  { path: 'project-detail', component: ProjectDetailComponent },
   { path: 'dashboard', component: DashboardComponent },
   {
     path: '**', pathMatch: 'full',

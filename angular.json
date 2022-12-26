@@ -76,7 +76,8 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ui:build"
+            "browserTarget": "ui:build",
+            "proxyConfig": "src/proxy.conf.json"
           }
         },
         "test": {
@@ -98,5 +99,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "e3d190d6-07b5-495a-b8cc-614cbf728e95"
   }
 }

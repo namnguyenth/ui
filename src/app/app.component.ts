@@ -19,4 +19,8 @@ export class AppComponent {
   redirectToUserManagement() {
     this.router.navigate(['/person']);
   }
+
+  redirectToProject() {
+    this.router.navigate(['/project']);
+  }
 }

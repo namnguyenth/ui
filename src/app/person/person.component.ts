@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Person } from '../model/person';
 import { SharedService } from '../shared.service';
 
 @Component({
@@ -7,21 +9,28 @@ import { SharedService } from '../shared.service';
   styleUrls: ['./person.component.css']
 })
 export class PersonComponent implements OnInit {
-  person_list: any = [
-  ]
-  constructor(private sharedServices: SharedService
+  person_list: Person[] = []
+  result: any = [];
+  constructor(
+    private sharedServices: SharedService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
-    this.getDepartmentList()
+    this.getPerson()
   }
 
-  getDepartmentList() {
+  getPerson() {
     this.sharedServices.getPerson().subscribe(
       data => {
-        this.person_list = data;
+        this.result = data;
+        this.person_list = this.result.data
       }
     )
+  }
+
+  view_detail() {
+    this.router.navigate(['/person-detail']);
   }
 
 }

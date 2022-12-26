@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SharedService {
-  API_URL = "http://127.0.0.1:8000/"
-  PHOTO_URL = "http://127.0.0.1:8000/media/"
+  API_URL = "http://127.0.0.1:5000/"
+  PHOTO_URL = "http://127.0.0.1:5000/media/"
 
   constructor(
     private HttpClient: HttpClient
