@@ -16,6 +16,7 @@ import { PersonComponent } from './person/person.component';
 import { PersonDetailComponent } from './person-detail/person-detail.component';
 import { ProjectComponent } from './project/project.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import { PersonModalComponent } from './person/person-modal/person-modal.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +27,14 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
     PersonDetailComponent,
     ProjectComponent,
     ProjectDetailComponent,
+    PersonModalComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
+    FormsModule
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Person } from '../model/person';
 import { SharedService } from '../shared.service';
@@ -9,7 +9,28 @@ import { SharedService } from '../shared.service';
   styleUrls: ['./person.component.css']
 })
 export class PersonComponent implements OnInit {
-  person_list: Person[] = []
+  // person_list: Person[] = []
+  person_list: any = [
+    {
+      first_name: "string",
+      last_name: "string",
+      email: "string",
+      address: "string",
+      phone: "string",
+      // # language : number,
+      // # country : number,
+      // # company : number,
+      // # currency : number,
+      // # role : number,
+      avatar: "string",
+      created_date: Date.now(),
+      created_user: "Admin",
+      updated_date: Date.now(),
+      updated_user: "Admin",
+      is_deleted: false
+    },
+    
+  ]
   result: any = [];
   constructor(
     private sharedServices: SharedService,
@@ -17,7 +38,7 @@ export class PersonComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getPerson()
+    // this.getPerson()
   }
 
   getPerson() {
