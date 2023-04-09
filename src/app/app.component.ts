@@ -12,6 +12,17 @@ export class AppComponent {
   ) {
   }
 
+  usersManagementRoot = [
+    {
+      'title': 'Project',
+      'root': '/project'
+    },
+    {
+      'title': 'Nation',
+      'root': '/nation'
+    },
+  ];
+
   redirectToDashboard() {
     this.router.navigate(['/dashboard']);
   }
@@ -22,5 +33,9 @@ export class AppComponent {
 
   redirectToProject() {
     this.router.navigate(['/project']);
+  }
+
+  redirectToRoot(root:string) {
+    this.router.navigate([root]);
   }
 }
