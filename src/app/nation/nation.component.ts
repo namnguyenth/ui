@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { SharedService } from '../shared.service';
-import { Router } from '@angular/router';
+import { NationModalComponent } from './nation-modal/nation-modal.component';
 
 @Component({
   selector: 'app-nation',
@@ -8,24 +8,83 @@ import { Router } from '@angular/router';
   styleUrls: ['./nation.component.css']
 })
 export class NationComponent implements OnInit {
+  @ViewChild('modal') modal!: NationModalComponent;
   nations: any = []
   constructor(
     private sharedServices: SharedService,
-    private router: Router,
   ) { }
 
-  ngOnInit(): void {
-    this.getPerson();
+  fakeData() {
+    this.nations = [
+      {
+        name: 'VN',
+        created_date: new Date()?.toISOString(),
+        created_by: '1',
+        updated_date: null,
+        updated_by: null,
+        deleted_date: null,
+        deleted_by: null
+      },
+      {
+        name: 'CN',
+        created_date: new Date()?.toISOString(),
+        created_by: '1',
+        updated_date: null,
+        updated_by: null,
+        deleted_date: null,
+        deleted_by: null
+      },
+      {
+        name: 'FR',
+        created_date: new Date()?.toISOString(),
+        created_by: '1',
+        updated_date: null,
+        updated_by: null,
+        deleted_date: null,
+        deleted_by: null
+      },
+      {
+        name: 'US',
+        created_date: new Date()?.toISOString(),
+        created_by: '1',
+        updated_date: null,
+        updated_by: null,
+        deleted_date: null,
+        deleted_by: null
+      },
+      {
+        name: "UK",
+        created_date: new Date()?.toISOString(),
+        created_by: '1',
+        updated_date: null,
+        updated_by: null,
+        deleted_date: null,
+        deleted_by: null
+      },
+    ]
   }
 
-  view_detail() {
+  ngOnInit(): void {
+    // this.getPerson();
+    this.fakeData()
+  }
 
+  edit(item?: any) {
+    this.modal.show(item);
+  }
+
+  create() {
+    this.modal.show();
+  }
+
+  hide() {
+    this.modal.hide();
   }
 
   getPerson() {
     this.sharedServices.getNations().subscribe(
       data => {
-        this.nations = data
+        this.nations = data;
       }
     )
   }

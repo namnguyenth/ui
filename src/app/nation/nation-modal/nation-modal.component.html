@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
-                <form id="kt_modal_add_nation_form" class="form" action="#">
+                <div id="kt_modal_add_nation_form" class="form">
                     <div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_nation_scroll"
                         data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}"
                         data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_nation_header"
@@ -23,24 +23,24 @@
 
                         <div class="fv-row mb-7">
                             <label class="required fw-bold fs-6 mb-2">Nation Name</label>
-                            <input [ngModel]="nation.name" (change)="test()" [ngModelOptions]="{standalone: true}" type="text" class="form-control form-control-solid mb-3 mb-lg-0"
-                                placeholder="Last name" />
+                            <input [(ngModel)]="data.name" type="text"
+                                class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Last name" />
                             <div class="fv-plugins-message-container invalid-feedback">
-                                <div>Nation name is required
+                                <div *ngIf="!data.name">Nation name is required
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="text-center pt-15">
                         <button type="reset" class="btn btn-light me-3"
-                            data-kt-users-modal-action="cancel">Discard</button>
-                        <button class="btn btn-primary" data-kt-users-modal-action="submit">
+                            data-kt-users-modal-action="cancel" (click)="hide()">Discard</button>
+                        <button class="btn btn-primary" data-kt-users-modal-action="submit" (submit)="createNation()">
                             <span class="indicator-label">Submit</span>
                             <span class="indicator-progress">Please wait...
                                 <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                         </button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
