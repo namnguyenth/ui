@@ -1,14 +1,11 @@
-import { Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { SharedService } from '../shared.service';
-import { NationModalComponent } from './nation-modal/nation-modal.component';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-nation',
-  templateUrl: './nation.component.html',
-  styleUrls: ['./nation.component.css']
+  selector: 'app-artist',
+  templateUrl: './artist.component.html',
+  styleUrls: ['./artist.component.css']
 })
-export class NationComponent implements OnInit {
-  @ViewChild('modal') modal!: NationModalComponent;
+export class ArtistComponent implements OnInit {
   nations: any = []
   fakeData() {
     this.nations = [
@@ -105,33 +102,10 @@ export class NationComponent implements OnInit {
     ]
   }
 
-  constructor(
-    private sharedServices: SharedService,
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
-    // this.getPerson();
-    this.fakeData()
-  }
-
-  edit(item?: any) {
-    this.modal.show(item);
-  }
-
-  create() {
-    this.modal.show();
-  }
-
-  hide() {
-    this.modal.hide();
-  }
-
-  getPerson() {
-    this.sharedServices.getNations().subscribe(
-      data => {
-        this.nations = data;
-      }
-    )
+    this.fakeData();
   }
 
 }

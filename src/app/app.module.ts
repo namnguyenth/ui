@@ -19,6 +19,9 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
 import { PersonModalComponent } from './person/person-modal/person-modal.component';
 import { NationComponent } from './nation/nation.component';
 import { NationModalComponent } from './nation/nation-modal/nation-modal.component';
+import { ArtistComponent } from './artist/artist.component';
+import { ArtistDetailComponent } from './artist/artist-detail/artist-detail.component';
+import { ArtistModalComponent } from './artist/artist-modal/artist-modal.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { NationModalComponent } from './nation/nation-modal/nation-modal.compone
     PersonModalComponent,
     NationComponent,
     NationModalComponent,
+    ArtistComponent,
+    ArtistDetailComponent,
+    ArtistModalComponent,
   ],
   imports: [
     BrowserModule,

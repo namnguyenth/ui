@@ -7,6 +7,7 @@ import { PersonComponent } from './person/person.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { ProjectComponent } from './project/project.component';
 import { NationComponent } from './nation/nation.component';
+import { ArtistComponent } from './artist/artist.component';
 
 const routes: Routes = [
   { path: 'person', component: PersonComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'project-detail', component: ProjectDetailComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'nation', component: NationComponent },
+  { path: 'artist', component: ArtistComponent },
   {
     path: '**', pathMatch: 'full',
     component: PagenotfoundComponent
