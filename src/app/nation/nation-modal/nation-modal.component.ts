@@ -54,7 +54,11 @@ export class NationModalComponent implements OnInit {
   }
 
   hide() {
-    // $('#kt_modal_add_nation').modal('hide');
+    const modal = document.getElementById("kt_modal_add_nation");
+    if (modal != null) {
+      modal.style.display = 'none';
+      $('.modal-backdrop')?.remove();
+    }
   }
 
   createNation() {
