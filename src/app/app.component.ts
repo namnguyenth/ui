@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  isPlay: boolean = false;
   constructor(
     private router: Router,
   ) {
@@ -35,7 +36,11 @@ export class AppComponent {
     this.router.navigate(['/project']);
   }
 
-  redirectToRoot(root:string) {
+  redirectToRoot(root: string) {
     this.router.navigate([root]);
+  }
+
+  OnOff() {
+    this.isPlay = !this.isPlay
   }
 }
