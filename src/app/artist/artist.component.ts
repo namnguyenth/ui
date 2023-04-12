@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ArtistModalComponent } from './artist-modal/artist-modal.component';
 
 @Component({
   selector: 'app-artist',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./artist.component.css']
 })
 export class ArtistComponent implements OnInit {
+  @ViewChild('modal') modal!: ArtistModalComponent;
   nations: any = []
   fakeData() {
     this.nations = [
@@ -106,6 +108,18 @@ export class ArtistComponent implements OnInit {
 
   ngOnInit(): void {
     this.fakeData();
+  }
+
+  edit(item?: any) {
+    this.modal.show(item);
+  }
+
+  create() {
+    this.modal.show();
+  }
+
+  hide() {
+    this.modal.hide();
   }
 
 }
