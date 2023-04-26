@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-artist-modal',
@@ -16,10 +17,14 @@ export class ArtistModalComponent implements OnInit {
     // deleted_date: null,
     // deleted_by: null
   }
+  nations:any = [];
 
-  constructor() { }
+  constructor(
+    private sharedServices: SharedService,
+  ) { }
 
   ngOnInit(): void {
+    this.getNation();
   }
 
   show(item?: any) {
@@ -50,6 +55,19 @@ export class ArtistModalComponent implements OnInit {
       modal.style.display = 'none';
       $('.modal-backdrop')?.remove();
     }
+  }
+
+  getNation() {
+    this.sharedServices.getNations().subscribe(
+      data => {
+        this.nations = data;
+      }
+    )
+  }
+  
+  test(){
+    console.log(this.nations);
+    
   }
 
 }

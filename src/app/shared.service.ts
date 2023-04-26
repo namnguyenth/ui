@@ -62,5 +62,9 @@ export class SharedService {
     return this.HttpClient.post<any[]>(this.API_URL+"nation", value);
   }
 
+  getArtist():Observable<any[]>{
+    return this.HttpClient.get<any[]>(this.API_URL+"artist");
+  }
+
 
 }

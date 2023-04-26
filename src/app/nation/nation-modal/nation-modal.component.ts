@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 import { NationComponent } from '../nation.component';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
@@ -11,6 +11,7 @@ import * as $ from 'jquery';
 })
 export class NationModalComponent implements OnInit {
   @Input() nation: any = {};
+  @Output() submitSuccess = new EventEmitter();
 
   constructor(private sharedServices: SharedService,
   ) { }
@@ -62,9 +63,10 @@ export class NationModalComponent implements OnInit {
   }
 
   createNation() {
-    this.sharedServices.createNation(this.nation).subscribe(
+    this.sharedServices.createNation(this.data).subscribe(
       data => {
-        return
+        this.submitSuccess.emit();
+        this.hide()
       }
     )
   }

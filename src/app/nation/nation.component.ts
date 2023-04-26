@@ -110,8 +110,8 @@ export class NationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.getPerson();
-    this.fakeData()
+    this.getPerson();
+    // this.fakeData()
   }
 
   edit(item?: any) {
@@ -120,6 +120,7 @@ export class NationComponent implements OnInit {
 
   create() {
     this.modal.show();
+    this.reload()
   }
 
   hide() {
@@ -132,6 +133,12 @@ export class NationComponent implements OnInit {
         this.nations = data;
       }
     )
+  }
+
+  reload() {
+    this.modal.submitSuccess.subscribe(() => {
+      this.getPerson()
+    });
   }
 
 }

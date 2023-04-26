@@ -44,7 +44,8 @@ import { ArtistModalComponent } from './artist/artist-modal/artist-modal.compone
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
   ],
   providers: [SharedService],
   bootstrap: [AppComponent]

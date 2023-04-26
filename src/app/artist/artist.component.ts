@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ArtistModalComponent } from './artist-modal/artist-modal.component';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-artist',
@@ -104,10 +105,13 @@ export class ArtistComponent implements OnInit {
     ]
   }
 
-  constructor() { }
+  constructor(
+    private sharedService : SharedService
+  ) { }
 
   ngOnInit(): void {
-    this.fakeData();
+    // this.fakeData();
+    this.getArtist();
   }
 
   edit(item?: any) {
@@ -120,6 +124,16 @@ export class ArtistComponent implements OnInit {
 
   hide() {
     this.modal.hide();
+  }
+
+  getArtist() {
+    this.sharedService.getArtist().subscribe(
+      data => {
+        this.nations = data;
+        console.log(this.nations);
+        
+      }
+    )
   }
 
 }
